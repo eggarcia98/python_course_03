@@ -61,7 +61,7 @@ def write_text_file(text_content, filename):
        output.write(text_content)
     print("Conversion completed successfully.")
 
-def calculate_sum_of_nums_from_string(filename):
+def calculate_sum_of_nums_from_file(filename):
     file = open(f"./file_handling/files/{filename}", "r")
 
     lines_list = file.readlines();
@@ -79,16 +79,26 @@ def calculate_sum_of_nums_from_string(filename):
     
     return sum(number_list)
 
+def remove_bank_splace_from_file(filename):
+    file = open(f"./file_handling/files/{filename}", "r")
+
+    lines_list = file.readlines();
+    words_list = [line.replace("\n", " ").strip().split(" ") for line in lines_list]
+    words_list = sum(words_list, []) 
+    
+    write_text_file("".join(words_list), "text_without_spaces.txt")
+
+
 
 # 1. Write a Python program that reads a text file and prints the number of
 # lines, words, and characters in the file.
-# content_file = read_txt_file("python.txt")
-# print(content_file)
+content_file = read_txt_file("python.txt")
+print(content_file)
 
 # # 2. Write a Python program that reads a CSV file and converts it into a dictionary. 
 # # Each row of the CSV file should be a key-value pair in the dictionary.
-# csv_data = read_csv_file("enterprise-survey.csv")
-# print(len(csv_data))
+csv_data = read_csv_file("enterprise-survey.csv")
+print(len(csv_data))
 
 # 3. Write a Python program that reads a binary file and converts it into a 
 # hexadecimal string. The program should output the hexadecimal string to a text file.
@@ -98,10 +108,13 @@ write_text_file(string_content, "hex_to_text_file.txt")
 
 #  4. Write a Python program that reads a text file containing numbers and calculates 
 # the sum of all the numbers in the file.
-sum_of_numbers = calculate_sum_of_nums_from_string("numbers_file.txt")
+sum_of_numbers = calculate_sum_of_nums_from_file("numbers_file.txt")
 print(sum_of_numbers)
 
+# 5. Write a Python program that reads a text file and removes all the blank lines. 
+# The modified text should be written back to the file.
+remove_bank_splace_from_file("python.txt")
 
 
 
-## KEY SHORTCUTS CTRL + P + L
+## KEY SHORTCUTS CTRL + K + P
