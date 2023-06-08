@@ -61,6 +61,25 @@ def write_text_file(text_content, filename):
        output.write(text_content)
     print("Conversion completed successfully.")
 
+def calculate_sum_of_nums_from_string(filename):
+    file = open(f"./file_handling/files/{filename}", "r")
+
+    lines_list = file.readlines();
+    
+    words_list = [line.replace("\n", " ").strip().split(" ") for line in lines_list]
+    words_list = sum(words_list, []) #flat list ["hello", "my"m "name"] + ["Erick", ",I'm "] = ["hello", "my"m "name", "Erick", ",I'm "]
+
+    number_list = []
+    for word in words_list:
+        try:
+            number = int(word)
+            number_list.append(number)
+        except:
+            print(f"{word} is not a number")
+    
+    return sum(number_list)
+
+
 # 1. Write a Python program that reads a text file and prints the number of
 # lines, words, and characters in the file.
 # content_file = read_txt_file("python.txt")
@@ -77,3 +96,12 @@ hex_string = convert_binary_file_to_hex_string("python.bin")
 string_content = convert_hex_string_to_text(hex_string)
 write_text_file(string_content, "hex_to_text_file.txt")
 
+#  4. Write a Python program that reads a text file containing numbers and calculates 
+# the sum of all the numbers in the file.
+sum_of_numbers = calculate_sum_of_nums_from_string("numbers_file.txt")
+print(sum_of_numbers)
+
+
+
+
+## KEY SHORTCUTS CTRL + P + L
