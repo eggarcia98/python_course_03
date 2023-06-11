@@ -115,6 +115,4 @@ print(sum_of_numbers)
 # The modified text should be written back to the file.
 remove_bank_splace_from_file("python.txt")
 
-
-
 ## KEY SHORTCUTS CTRL + K + P
